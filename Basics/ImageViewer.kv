@@ -1,0 +1,205 @@
+BoxLayout:
+    #   background colour
+    canvas.before:
+        Color:
+            rgba: (21/255,22/255,30/255,1)
+        Rectangle:
+            #   self refers to the widget i.e BoxLayout
+            size: self.size
+            pos: self.pos
+
+    spacing: 10
+    orientation: "vertical"
+    
+    #   header container
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+
+        #   set header height
+        height: 50
+        
+        Button:
+            text:"Menu"
+            size_hint_x: None
+            background_color: 0,0,0,0
+            #   set button bg colour and bg radius
+            canvas.before:
+                #   add background colour
+                Color:
+                    rgba: (228/255,168/255,55/255,1)
+
+                #   creating a rectangle of button size
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius:[20]
+
+        Label:
+            text: "My App Header"
+        
+        TextInput:
+            #   placeholder      
+            hint_text: "Search"
+            multiline: False
+            size_hint_x: None
+            size_hint_y: .8
+            padding_y: [10,10]
+            font_size: "14dp"
+            
+            #   background
+
+            background_color: 0,0,0,0
+            cursor_colour: (228/255,168/255,55/255,1)
+            #   add bottom border
+            canvas.before:
+                Color:
+                    rgba:(228/255,168/255,55/255,1)
+            canvas.after:
+                Color:
+                    rgba:(228/255,168/255,55/255,1)
+                Line:
+                    points:self.pos[0],self.pos[1],self.pos[0]+ self.size[0]+self.pos[1]
+
+    #   middle container
+    BoxLayout:
+
+        orientation: "horizontal"
+
+        #   left Menu
+        StackLayout:
+            size_hint: (.4,1)
+            spacing: 5
+
+            canvas.before:
+                Color:
+                    rgba:   (21/255,22/255,30/255,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            
+            Button:
+                text: "Page 1"
+                size_hint:(1,None)
+                height:40
+                background_color: (228/255,168/255,55/255,0)
+                #   border: 30,30,30,30
+
+                canvas.before:
+                    Color:
+                        rgba: (48/255,49/255,54/255,.5)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+            
+            Button:
+                text: "Page 2"
+                size_hint:(1,None)
+                height:40
+                background_color: (228/255,168/255,55/255,0)
+                #   border: 30,30,30,30
+
+                canvas.before:
+                    Color:
+                        rgba: (48/255,49/255,54/255,.5)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+
+        #   center
+        BoxLayout:
+            
+            PageLayout:
+                orientation:"vertical"
+                size_hint: (1,1)
+
+                BoxLayout:
+                    orientation:"vertical"
+                    AsyncImage:
+                        source:"plane.png"
+                        allow_stretch: True
+            
+                BoxLayout:
+                    orientation:"vertical"
+                    AsyncImage:
+                        source:"plane2.png"
+                        allow_stretch: True
+            
+                BoxLayout:
+                    orientation:"vertical"
+                    AsyncImage:
+                        source:"plane3.jpeg"
+                        allow_stretch: True
+            
+                BoxLayout:
+                    orientation:"vertical"
+                    AsyncImage:
+                        source:"plane4.jpeg"
+                        allow_stretch: True
+
+        #   right Menu
+        StackLayout:
+            size_hint: (.4,1)
+            spacing: 5
+
+            canvas.before:
+                Color:
+                    rgba:   (21/255,22/255,30/255,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            
+            Button:
+                text: "Page 3"
+                size_hint:(1,None)
+                height:40
+                background_color: (228/255,168/255,55/255,0)
+                #   border: 30,30,30,30
+
+                canvas.before:
+                    Color:
+                        rgba: (48/255,49/255,54/255,.5)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+            
+            Button:
+                text: "Page 4"
+                size_hint:(1,None)
+                height:40
+                background_color: (228/255,168/255,55/255,0)
+                #   border: 30,30,30,30
+
+                canvas.before:
+                    Color:
+                        rgba: (48/255,49/255,54/255,.5)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+
+    #   footer container
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: None
+        height: 30
+        spacing: 5
+
+        Label:
+            text: "Coyyright 2021"
+        
+        Button:
+            text: "Help"
+            size_hint_x: None
+            background_color: (0,0,0,0)
+
+            canvas.before:
+                Color:
+                    rgba: (48/255,49/255,54/255)
+                RondedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius:[20]

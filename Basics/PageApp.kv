@@ -1,0 +1,68 @@
+
+<PageLayoutTest>:
+    Label:
+        canvas.before:
+            Color:
+                rgb: .75,0,0
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        text: "Welcomebeng"
+        font_size: 100
+        bold: True
+        italic: True
+        color: 1,1,1
+        #   text colour not background colour
+    
+    GridLayout:
+
+        planeimg: plane
+        planeimg2: plane2
+        planeimg3: plane3
+        planeimg4: plane4
+   
+
+
+        size: root.size
+        canvas.before:
+            Color:
+                rgb: .75,0,0
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        cols: 2
+        rows: 2
+           
+        padding: 50,50,50,50
+        spacing: 100
+        
+        MyImage:
+            id: plane
+            source:"plane.png"
+        MyImage:
+            id: plane2
+            source:"plane2.png"
+        MyImage:
+            id: plane3
+            source:"plane3.jpeg"
+        MyImage:
+            id: plane4
+            source:"plane4.jpeg"
+    
+    Label:
+        canvas.before:
+            Color:
+                rgb: .75,0,0
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        text: "Tenkiubeng"
+        font_size: 100
+        bold: True
+        italic: True
+        color: 1,1,1
+        #   text colour not background colour
+        
