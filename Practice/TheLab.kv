@@ -1,0 +1,142 @@
+WidgetExample:
+
+<WidgetExample>:
+    #   1
+    
+    cols: 3
+    Button:
+        text: "Count"
+        on_press: root.on_button_click()
+
+        #   "self." concerns the Button
+        #   "root." concerns the WidgetsExample
+    Label:
+        text: root.my_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "80dp"
+
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+    StackLayoutExample
+
+
+    StackLayoutExample:
+<ScrollViewExample@ScrollView>:
+        # size_hint: None, 1 = scroll horizontally
+
+        size_hint: 1,None
+        height: self.minimum_height
+
+    #   left-right top-bottom
+<StackLayoutExample>:
+    #   default is ^^
+    #   orientation: "rl-bt"
+    #   padding: (left top right bottom (clockwise)) 
+    #   padding = distance from border to button?
+    #   padding: ("20dp","40dp","20dp","40dp")
+    #   spacing: space between each button( horizontal, vertical)
+    #    spacing: "20dp","20dp"
+
+    #   needs rows
+<GridLayoutExample@GridLayout>:
+
+    #   need columns ( cols )
+    rows: 3
+    cols: 3
+    
+    space: "100dp"
+
+    Button:
+        text: "A"
+        size_hint: .75,.75
+    Button:
+        text: "B"
+        size_hint: .75,.75
+    Button:
+        text: "C"
+        size_hint: .75,.75
+    Button:
+        text: "D"
+    Button:
+        text: "E"
+    Button:
+        text: "F"
+    <AnchorLayoutExample>:
+    #   right,left,center
+    #   anchor_x: "center"
+    #   top, right, center
+    #   anchor_y: "bottom"
+    
+    anchor_x: "center"
+    anchor_y: "bottom"
+    
+    BoxLayout:
+
+        #anchor_x: "center"
+        #anchor_y: "bottom"
+
+        size_hint: .4,.4
+        Button:
+            text: "A"
+        Button:
+            text: "B"
+
+    
+
+    BoxLayout:
+
+        #anchor_x: "left"
+        #anchor_y: "top"
+
+        size_hint: .25,.25
+        Button:
+            text: "C"
+        Button:
+            text: "D"
+
+<BoxLayoutExample>:
+    orientation: "horizontal"
+
+    Button:
+        text: "Mai"
+        size_hint: 0.5,0.5
+    
+    Button:
+        text: "Lai"
+
+        size_hint: 1,None
+        pos_hint: {"top": 1}
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        Button:
+            text: "Kai1"
+        Button:
+            text: "Kai2"
+
+        
+    Label:
+        text: "Sai"
+
+<MainWidget>:
+    Button:
+        text: "Hello"
+        size: "100dp","80dp"
+        pos: "300dp","200dp"
+        color: "blue"
+
+    Button:
+        text: "Mai"
+        size: "100dp","80dp"
+        pos: "500dp","200dp"
+        color: "red"
+
+    Label:
+        text: "Hi low"
+        size: "100dp","80dp"
+        pos: "400dp","500dp"

@@ -1,0 +1,218 @@
+TextText:
+
+<ToggleDisplay>:
+
+    cols: 3
+
+    ToggleButton:
+        text: "OFF"
+
+        size_hint: None,1
+        width: "100dp"
+
+        on_state: root.toggle_button_on_state(self)
+
+    Button:
+        text: "Counter"
+        on_press: root.button_press()
+        disabled: not root.count_enabled
+
+        # disabled: makes the button not clickable
+        #   if we use "disabled: root.count_enabled"
+        #   when the count is enabled and results in True, the "disabled:" will be on
+        #   so, when toggle is on, "disabled:" is on which disables it
+        #   so, we use "not"
+    
+    Label:
+        text: root.text
+        font_name: "fonts2/Lcd.ttf"
+        font_size: "80dp"
+        color: "red"
+    
+    Switch:
+        id: my_switch
+
+        on_active: root.on_switch_active(self)
+        size_hint: None,1
+        width: "100dp"
+
+        active: True
+
+    Slider: 
+        id: my_slider
+
+        orientation: "vertical"
+        min: 0
+        max: 100
+
+        value: 50
+
+        
+        disabled: not my_switch.active 
+    
+    BoxLayout:
+
+        orientation: "vertical"
+
+        Label:
+            text: str(int(my_slider.value))
+            disabled: my_slider.disabled
+        
+        ProgressBar:
+            max: 100
+            value: int(my_slider.value)
+    
+    Switch:
+        id: my_switch2
+
+        size_hint: None,1
+        width: "100dp"
+
+        active: True
+
+    TextInput:
+        id: my_TextInput
+
+        size_hint: None,1
+        width: "100dp"
+
+        text: ""
+        multiline: False
+
+        on_text_validate: root.on_text_validate(self)
+
+        disabled: not my_switch2.active
+    
+    Label:
+        text:  "My sister's name is " + root.text_input_str
+
+        disabled: not my_switch2.active
+
+<TextText@GridLayout>:
+    cols: 3
+
+    Switch:
+        id: my_switch2
+
+        size_hint: None,1
+        width: "100dp"
+
+        active: True
+
+    TextInput:
+        id: my_TextInput
+
+        size_hint: None,1
+        width: "100dp"
+
+        text: ""
+        multiline: False
+
+        on_text_validate: root.on_text_validate(self)
+
+        disabled: not my_switch2.active
+    
+    Label:
+        text:  "My sister's name is " + root.text_input_str
+
+        disabled: not my_switch2.active
+
+
+<ImageExample@GridLayout>:
+    cols: 3
+
+    Image:
+        source: "images2/airasia2.png"
+    Image:
+        source: "images2/airasia2.png"
+        allow_stretch: True
+    Image:
+        source: "images2/airasia2.png"
+        
+        allow_stretch: True
+        keep_ratio: False
+        #   keep_ratio can only be called when allow_stretch is True
+        #   useful for backgorund image/gradiant
+    
+
+#:set s dp(200)
+#:set e dp(100)
+
+<CanvasExample1>:
+    canvas:
+        Rectangle:
+            size: s,s
+            pos: self.center_x - s/2, self.center_y - s/2
+        Ellipse:
+            pos: 400,100
+            size: e,e/2
+        Line:
+            points: (0,0,self.width/4,100,self.width/2,0,self.width*3/4,100,self.width,0)
+        
+        Line:
+            points: (0,0,100,self.height/4,0,self.height/2,100,self.height*3/4,0,self.height)
+
+<CanvasExample2>:
+    canvas:
+        Line:
+            points: (0,self.height/2,self.width,self.height/2)
+            width: 4
+        Line:
+            points: (self.width/2,0,self.width/2,self.height) 
+            width: 4       
+            
+<CanvasExample3>:
+    canvas:
+        Color:
+            rgba: 0,1,0,.3 #    a = alpha
+        Line:
+            circle: (200,200,100) #    center_x,center_y,radius
+            width: 4
+        Color:
+            rgba: 1,0,0,.3
+        Line:
+            rectangle: (500,250,200,175) #    x,y,w,h
+            width: 4
+    
+<CanvasExample4>:
+    Button:
+        text: "right"
+        pos: 400,100
+        on_press: root.move_right()
+    
+    Button:
+        text: "left"
+        pos: 200,100
+        on_press: root.move_left()
+    
+<CanvasExample5>:
+
+<CanvasExample6>:
+    #DONT UNDERSTAND RELATIVELAYOUT - (Coordinates and RELATIVELAYOUT)
+    BoxLayout:
+        size:root.size
+        #   makes the button/s the size of the screen
+
+        Widget:
+            canvas:
+                Color:
+                    rgb: 1,0,0
+                Rectangle:
+                    size: self.size
+                    #   compares to the size of the widget screen
+        Widget:
+            canvas:
+                Color:
+                    rgb: 1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos 
+        Widget:
+            canvas:
+                Color:
+                    rgb: 0,0,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        
+        

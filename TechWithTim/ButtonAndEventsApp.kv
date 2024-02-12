@@ -1,0 +1,61 @@
+ButtonAndEventslayout:
+
+<ButtonAndEventslayout>:
+    rows: 3
+
+    GridLayout:
+        cols:1
+        rows:1
+        #Button:
+          #//  text: "Submit"
+           # //on_press: root.submit_press()
+        Switch:
+            id: switch1
+
+            active:False
+
+    GridLayout:
+        cols: 3
+        rows: 3
+    
+        Label:
+            id: lable1
+            text: "First Name"
+        TextInput:
+            multiline: False
+            on_text_validate: root.on_text_validate(self)
+            disabled: not switch1.active
+            
+        Label:
+            text: root.text_input_str
+
+        Label:
+            text: "Last Name"
+        TextInput:
+            multiline: False
+            on_text_validate: root.on_text_validate(self)
+            disabled: not switch1.active
+        Label:
+            text: root.text_input_str
+        
+        
+        Label:
+            text: "Email Name"
+        TextInput:
+            multiline: False
+            on_text_validate: root.on_text_validate(self)
+            disabled: not switch1.active
+        Label:
+            text: root.text_input_str
+
+    GridLayout:
+        cols: 1
+        rows: 1
+
+        Button:
+            
+            text: "Submit"
+            disabled: not switch1.active
+
+            
+    

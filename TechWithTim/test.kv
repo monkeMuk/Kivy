@@ -1,0 +1,27 @@
+testy2:
+
+<testy>:
+    cols: 2
+
+    TextInput:
+        id: my_TextInput
+        multinline: false
+        text: ""
+        on_text_validate: root.on_text_validate(self)
+    
+    Label:
+        text: root.text_input_str
+        text:"hi"
+    
+<testy2@GridLayout>:
+    cols: 2
+
+    TextInput:
+
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+
+    
+    Label:
+        text:  "My sister's name is " + root.text_input_str
+
